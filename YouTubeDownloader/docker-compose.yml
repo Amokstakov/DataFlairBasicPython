@@ -5,8 +5,8 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile-prod
-    ports:
-      - "3000:80" 
+    #ports:
+      #- "3000:80" 
 
   server:
     build: ./server
