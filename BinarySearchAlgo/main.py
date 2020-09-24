@@ -1,5 +1,5 @@
 class BinarySearchAlgo:
-    def __init__(self, list_array, number_to_search):
+ 6 def __init__(self, list_array, number_to_search):
         self.list = list_array
         self.number_to_search = number_to_search
 
