@@ -8,8 +8,8 @@ services:
       dockerfile: Dockerfile-prod
     volumes:
       - static:/client/build 
-    #ports:
-      #- "3000:80" 
+    ports:
+      - "3000:80" 
 
   server:
     build: ./server
