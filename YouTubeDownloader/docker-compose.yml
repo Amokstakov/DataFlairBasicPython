@@ -1,18 +1,18 @@
 version: '3'
 
 services:
-  client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile-prod
-    #ports:
-      #- "3000:80" 
+  #client:
+    #build:
+      #context: ./client
+      #dockerfile: Dockerfile-prod
+    ##ports:
+      ##- "3000:80" 
 
-  server:
-    build: ./server
-    command: gunicorn --bind 0.0.0.0:8080 app:app
-    expose:
-      - 8080
+  #server:
+    #build: ./server
+    #command: gunicorn --bind 0.0.0.0:8080 app:app
+    #expose:
+      #- 8080
   nginx:
     image: nginx:1.15-alpine
     restart: unless-stopped
