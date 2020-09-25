@@ -76,5 +76,7 @@ docker-compose run --rm --entrypoint "\
     --force-renewal" certbot
 echo
 
-echo "### Reloading nginx ..."
-docker-compose exec client nginx -s reload
+if [ `docker-compose ps | grep client | awk '{print $5}'` = "Up" ]; then
+  echo "### Reloading nginx ..."
+  docker-compose exec client nginx -s reload
+fi
