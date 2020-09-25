@@ -1,29 +1,18 @@
 version: '3'
 
 services:
-  client:
-    container_name: client
-    build:
-      context: ./client
-      dockerfile: Dockerfile-prod
-    volumes:
-      - static:/client/build 
-    stdin_open: true
-    #ports:
-      #- "3000:80" 
-
   server:
     build: ./server
     command: gunicorn --bind 0.0.0.0:8080 app:app
     expose:
       - 8080
-
-  nginx:
-    image: nginx:1.15-alpine
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
-      - static:/usr/share/nginx/html
-      - ./client/build:/usr/share/nginx/html/
       - ./client/data/nginx:/etc/nginx/conf.d
       - ./client/data/certbot/conf:/etc/letsencrypt
       - ./client/data/certbot/www:/var/www/certbot
